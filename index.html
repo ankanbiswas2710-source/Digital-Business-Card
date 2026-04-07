@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ankan Biswas | Digital Business Card</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="card-wrapper">
+      <section class="hero">
+        <img
+          class="avatar"
+          src="assets/profile.jpg"
+          alt="Profile picture of Ankan Biswas"
+          onerror="this.src='assets/profile-placeholder.svg'"
+        />
+        <h1>Ankan Biswas</h1>
+        <p>Digital Business Card</p>
+      </section>
+
+      <section class="content">
+        <h2>Contact</h2>
+        <a class="contact-row" href="tel:+353871904178">
+          <span class="icon">📞</span>
+          <span>+353 871904178</span>
+        </a>
+        <a class="contact-row" href="mailto:ankan.biswas2710@gmail.com">
+          <span class="icon">✉️</span>
+          <span>ankan.biswas2710@gmail.com</span>
+        </a>
+
+        <button id="saveContactBtn" class="btn btn-primary">Save Contact</button>
+
+        <h2>Sample Websites</h2>
+        <a class="btn btn-dark" href="https://coffee-shop-ecommerce.vercel.app/" target="_blank" rel="noreferrer">
+          Open Sample Website 1
+        </a>
+        <a class="btn btn-secondary" href="https://your-coffee-shop.vercel.app" target="_blank" rel="noreferrer">
+          Open Sample Website 2
+        </a>
+
+        <h2>Scan & Share</h2>
+        <p class="hint">Use this QR code so others can open this card instantly.</p>
+        <img id="qrCode" class="qr" alt="QR code for this digital business card" />
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
