@@ -15,7 +15,6 @@ const captureCard = document.getElementById("captureCard");
 
 const cardUrl = window.location.href;
 
-// Generate QR code automatically from live page URL
 if (qrCode) {
   qrCode.src = `https://api.qrserver.com/v1/create-qr-code/?size=500x500&data=${encodeURIComponent(cardUrl)}`;
 }
@@ -35,7 +34,6 @@ function buildVCard() {
   return lines.join("\n");
 }
 
-// Save contact as .vcf
 if (saveContactBtn) {
   saveContactBtn.addEventListener("click", () => {
     const vCardContent = buildVCard();
@@ -53,7 +51,6 @@ if (saveContactBtn) {
   });
 }
 
-// Save card as image to gallery
 if (saveCardBtn && captureCard) {
   saveCardBtn.addEventListener("click", async () => {
     const canvas = await html2canvas(captureCard, {
