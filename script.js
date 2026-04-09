@@ -16,7 +16,9 @@ const captureCard = document.getElementById("captureCard");
 const cardUrl = window.location.href;
 
 if (qrCode) {
-  qrCode.src = `https://api.qrserver.com/v1/create-qr-code/?size=500x500&data=${encodeURIComponent(cardUrl)}`;
+  qrCode.src =
+    "https://api.qrserver.com/v1/create-qr-code/?size=500x500&data=" +
+    encodeURIComponent(cardUrl);
 }
 
 function buildVCard() {
@@ -53,18 +55,22 @@ if (saveContactBtn) {
 
 if (saveCardBtn && captureCard) {
   saveCardBtn.addEventListener("click", async () => {
-    const canvas = await html2canvas(captureCard, {
-      backgroundColor: "#050505",
-      scale: 3,
-      useCORS: true,
-    });
+    try {
+      const canvas = await html2canvas(captureCard, {
+        backgroundColor: "#050505",
+        scale: 3,
+        useCORS: true,
+      });
 
-    const imageURL = canvas.toDataURL("image/png");
-    const link = document.createElement("a");
-    link.href = imageURL;
-    link.download = "ankan-biswas-business-card.png";
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+      const imageURL = canvas.toDataURL("image/png");
+      const link = document.createElement("a");
+      link.href = imageURL;
+      link.download = "ankan-biswas-business-card.png";
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    } catch (error) {
+      console.error("Save image failed:", error);
+    }
   });
 }
