@@ -9,16 +9,23 @@ const contact = {
 };
 
 const qrCode = document.getElementById("qrCode");
+const saveQrCode = document.getElementById("saveQrCode");
 const saveContactBtn = document.getElementById("saveContactBtn");
 const saveCardBtn = document.getElementById("saveCardBtn");
-const captureCard = document.getElementById("captureCard");
+const saveCardLayout = document.getElementById("saveCardLayout");
 
 const cardUrl = window.location.href;
 
+const qrUrl =
+  "https://api.qrserver.com/v1/create-qr-code/?size=500x500&data=" +
+  encodeURIComponent(cardUrl);
+
 if (qrCode) {
-  qrCode.src =
-    "https://api.qrserver.com/v1/create-qr-code/?size=500x500&data=" +
-    encodeURIComponent(cardUrl);
+  qrCode.src = qrUrl;
+}
+
+if (saveQrCode) {
+  saveQrCode.src = qrUrl;
 }
 
 function buildVCard() {
@@ -53,14 +60,22 @@ if (saveContactBtn) {
   });
 }
 
-if (saveCardBtn && captureCard) {
+if (saveCardBtn && saveCardLayout) {
   saveCardBtn.addEventListener("click", async () => {
     try {
-      const canvas = await html2canvas(captureCard, {
+      saveCardLayout.style.left = "20px";
+      saveCardLayout.style.top = "20px";
+      saveCardLayout.style.zIndex = "9999";
+
+      const canvas = await html2canvas(saveCardLayout, {
         backgroundColor: "#050505",
         scale: 3,
         useCORS: true,
       });
+
+      saveCardLayout.style.left = "-99999px";
+      saveCardLayout.style.top = "0";
+      saveCardLayout.style.zIndex = "-1";
 
       const imageURL = canvas.toDataURL("image/png");
       const link = document.createElement("a");
