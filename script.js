@@ -130,12 +130,12 @@ function drawCircularPhoto(ctx, img, x, y, size) {
   const iw = img.naturalWidth;
   const ih = img.naturalHeight;
 
-  const scale = Math.max(innerSize / iw, innerSize / ih) * 1.12;
+  const scale = Math.max(innerSize / iw, innerSize / ih) * 1.02;
   const drawW = iw * scale;
   const drawH = ih * scale;
 
   const dx = innerX + (innerSize - drawW) / 2;
-  const dy = innerY + (innerSize - drawH) / 2 + innerSize * 0.10;
+  const dy = innerY + (innerSize - drawH) / 2 + innerSize * 0.18;
 
   ctx.drawImage(img, dx, dy, drawW, drawH);
   ctx.restore();
