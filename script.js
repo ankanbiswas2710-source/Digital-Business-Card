@@ -118,14 +118,22 @@ function drawCircularPhoto(ctx, img, x, y, size) {
 
   ctx.save();
   ctx.beginPath();
-  ctx.arc(innerX + innerSize / 2, innerY + innerSize / 2, innerSize / 2, 0, Math.PI * 2);
+  ctx.arc(
+    innerX + innerSize / 2,
+    innerY + innerSize / 2,
+    innerSize / 2,
+    0,
+    Math.PI * 2
+  );
   ctx.clip();
 
   const iw = img.naturalWidth;
   const ih = img.naturalHeight;
+
   const scale = Math.max(innerSize / iw, innerSize / ih) * 1.35;
   const drawW = iw * scale;
   const drawH = ih * scale;
+
   const dx = innerX + (innerSize - drawW) / 2;
   const dy = innerY + (innerSize - drawH) / 2 - innerSize * 0.02;
 
@@ -135,7 +143,13 @@ function drawCircularPhoto(ctx, img, x, y, size) {
   ctx.strokeStyle = "#111111";
   ctx.lineWidth = 4;
   ctx.beginPath();
-  ctx.arc(innerX + innerSize / 2, innerY + innerSize / 2, innerSize / 2 - 2, 0, Math.PI * 2);
+  ctx.arc(
+    innerX + innerSize / 2,
+    innerY + innerSize / 2,
+    innerSize / 2 - 2,
+    0,
+    Math.PI * 2
+  );
   ctx.stroke();
 }
 
