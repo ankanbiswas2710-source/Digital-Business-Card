@@ -96,7 +96,7 @@ async function buildSaveCardElement() {
             height:100%;
             display:block;
             object-fit:cover;
-            object-position:center 8%;
+            object-position:center 2%;
             transform:scale(1.08);
             border-radius:50%;
             border:4px solid #111111;
